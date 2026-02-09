@@ -8,3 +8,9 @@ Homework 2 Answers:
 3. The dates for Articles are problematic. Can you fix them?
     Article dates in are problematic in this .xml file because there are different types of dates for one single publication (date completed, date revised, publication date), which also have months either in like numbers of as a string. Some dates don't have days, while others might have all three: year, month, and date. I think to make it easier to work with this file, we should only choose one type of date to focus on and keep for every publication. I decided to focus on publication date, but then noticed that there are two different types of that: electronic and the journal issue code. My idea was to use the electronic date first and go to journal issue dates if needed. However, I was not fully able to implement it in code. 
 
+Homework 3:
+
+Performance:
+I used a random_forest model with features [hr_mean, hr_std, acc_mag_mean, acc_mag_std], and it achieved a score of 0.948979 on the test set.
+
+I first grouped the raw heart rate and accelerometer data into 1-minute windows and then computed the mean and standard deviation of heart rate and acceleration magnitude for each window. I used acceleration magnitude because it gives a single measure of overall movement, regardless of direction. Including both the mean and standard deviation helps capture the general level of activity as well as how variable it is within a minute. This makes sense for sleep classification since sleep typically involves less movement and more stable heart rate compared to being awake.
