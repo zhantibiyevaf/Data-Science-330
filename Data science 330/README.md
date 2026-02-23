@@ -14,3 +14,11 @@ Performance:
 I used a random_forest model with features [hr_mean, hr_std, acc_mag_mean, acc_mag_std], and it achieved a score of 0.948979 on the test set.
 
 I first grouped the raw heart rate and accelerometer data into 1-minute windows and then computed the mean and standard deviation of heart rate and acceleration magnitude for each window. I used acceleration magnitude because it gives a single measure of overall movement, regardless of direction. Including both the mean and standard deviation helps capture the general level of activity as well as how variable it is within a minute. This makes sense for sleep classification since sleep typically involves less movement and more stable heart rate compared to being awake.
+
+Homework 4:
+
+1. XGBoost achieved 0.9370 accuracy compared to Random Forest at 0.9452, so XGBoost performed worse by 0.0082.
+
+Homework 5:
+
+The simplest way is to block both phone books by a quick key, like last name + first initial, and only compare records inside the same block. This avoids all-to-all matching because entries in different blocks are never compared. You can reduce comparisons even more by requiring an exact phone number or ZIP code match before checking names and address details.
