@@ -21,4 +21,4 @@ Homework 4:
 
 Homework 5:
 
-The simplest way is to block both phone books by a quick key, like last name + first initial, and only compare records inside the same block. This avoids all-to-all matching because entries in different blocks are never compared. You can reduce comparisons even more by requiring an exact phone number or ZIP code match before checking names and address details.
+The simplest idea is to first block both phone books using a quick key, like last name plus first initial, and only compare people inside the same block. That way we don’t have to do an all-to-all comparison, because entries from different blocks are ignored from the start. We can narrow it down even more by requiring something exact like the same phone number or ZIP code before we even look closely at the names or address details.
