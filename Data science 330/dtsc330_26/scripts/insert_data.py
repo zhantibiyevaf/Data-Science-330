@@ -92,6 +92,28 @@ def insert_article_grant(engine, data_dir):
     bridge_df.to_sql("article_grant", con=engine, if_exists="append", index=False)
     print("Article-grant bridge inserted successfully.")
 
+#this is the function that will add data to the table authors in the database, so it will fill in columns like forename, surname, and ids that will link them to  articles
+def insert_authors(engine, data_dir):
+    xml_path = data_dir / "pubmed26n1335.xml.gz"
+
+    articles = Articles(str(xml_path))
+    authors_df = articles.get_authors()
+
+    if authors_df.empty:
+        print("No authors found in the XML file.")
+        return
+
+    article_ids = pd.read_sql("SELECT id, pmid FROM articles", con=engine)
+    article_ids["pmid"] = article_ids["pmid"].astype(str)
+    authors_df["PMID"] = authors_df["PMID"].astype(str)
+
+    authors_df = authors_df.merge(article_ids, left_on="PMID", right_on="pmid", how="inner")
+    authors_df = authors_df[["id", "ForeName", "LastName", "Initials", "Affiliation"]]
+    authors_df.columns = ["article_id", "forename", "surname", "initials", "affiliation"]
+
+    authors_df.to_sql("authors", con=engine, if_exists="append", index=False)
+    print("Authors inserted successfully.")
+
 # this will set up the database then insert the new data into it when we run this code
 def main():
     base_dir = Path(__file__).resolve().parents[2]
@@ -103,6 +125,7 @@ def main():
     insert_grants(engine, data_dir)
     insert_articles(engine, data_dir)
     insert_article_grant(engine, data_dir)
+    insert_authors(engine, data_dir)
 
 if __name__ == "__main__":
     main()
