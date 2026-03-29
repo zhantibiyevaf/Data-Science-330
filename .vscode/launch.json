@@ -1,29 +1,17 @@
 {
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run HW3 (module)",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "dtsc330_26.scripts.hw3_is_sleep",
-      "cwd": "${workspaceFolder}/Data science 330",
-      "python": "${workspaceFolder}/venv/bin/python",
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}/Data science 330"
-      },
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "Python: Current File (project venv)",
+      "name": "Python: Current File",
       "type": "debugpy",
       "request": "launch",
       "program": "${file}",
-      "cwd": "${workspaceFolder}/Data science 330",
-      "python": "${workspaceFolder}/venv/bin/python",
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}/Data science 330"
-      },
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "cwd": "${workspaceRoot}", // deprecated -- use workspaceFolder
+      "env": { "PYTHONPATH": "${workspaceRoot}" } // deprecated -- use workspaceFolder
     }
   ]
 }

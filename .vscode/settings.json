@@ -1,3 +1,14 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python"
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#773696"
+  },
+
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "ms-python.black-formatter",
+  "python-envs.defaultEnvManager": "ms-python.python:poetry",
+  "python-envs.defaultPackageManager": "ms-python.python:poetry"
 }
