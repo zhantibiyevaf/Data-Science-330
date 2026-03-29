@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "dtsc330-26"
+version = "0.1.0"
+description = ""
+authors = ["Arthur Sugden <arthur.sugden@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14.1"
+numpy = "^2.4.1"
+pandas = "^3.0.0"
+lxml = "^6.0.2"
+scikit-learn = "^1.8.0"
+fasttext = "^0.9.3"
+flask = "^3.1.2"
+nltk = "^3.9.2"
+spacy = "^3.8.11"
+gensim = "^4.4.0"
+jarowinkler = "^2.0.1"
+xgboost = "^3.2.0"
+sqlalchemy = "^2.0.48"
+networkx = "^3.6.1"
+matplotlib = "^3.10.8"
+geojson = "^3.2.0"
+geopandas = "^1.1.3"
+hnswlib = "^0.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

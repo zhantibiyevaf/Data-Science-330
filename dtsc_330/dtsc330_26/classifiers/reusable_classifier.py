@@ -31,39 +31,21 @@ class ReusableClassifier:
 
     def train(self, features, labels):
         if self.model_type == 'logistic_regression':
-            self.model = sklearn.linear_model.LogisticRegression(max_iter=1000)
-
-        elif self.model_type == 'random_forest':
+            self.model = sklearn.linear_model.LogisticRegression()
+        if self.model_type == 'random_forest':
             self.model = sklearn.ensemble.RandomForestClassifier()
-        elif self.model_type == 'xgboost':
-            import xgboost as xgb
-            self.model = xgb.XGBClassifier(
-                n_estimators=300,
-                max_depth=6,
-                learning_rate=0.1,
-                subsample=0.9,
-                colsample_bytree=0.9,
-                eval_metric="logloss",
-                tree_method="hist",
-                random_state=42,
-            )
 
-        else:
-            raise ValueError(f"Unknown model_type: {self.model_type}")
-
+        # We NEED to scale the data for regression
+        # we can use a StandardScaler to make it normal
+        # or we can use a MinMaxScaler to make it 0-1
         self.scaler = sklearn.preprocessing.StandardScaler()
-        self.scaler.fit(features)
-        features_scaled = self.scaler.transform(features)
+        self.scaler.fit(features)  # First, we fit the standard normal
+        features = self.scaler.transform(features) # Then we use it
 
-        # fit the model
-        self.model.fit(features_scaled, labels.astype(int))
-
-
-    def predict(self, features):
-        features_scaled = self.scaler.transform(features)
-        return self.model.predict(features_scaled)
-        
-        
+        # Attempts to train the model based on the features and labels
+        # Different algorithms have different ways of evaluating the
+        # training. 
+        self.model.fit(features, labels.astype(int))
 
     def predict(self, features):
         """Predict labels using model_type from features

@@ -10,8 +10,8 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "cwd": "${workspaceRoot}",
-      "env": { "PYTHONPATH": "${workspaceRoot}" }
+      "cwd": "${workspaceRoot}", // deprecated -- use workspaceFolder
+      "env": { "PYTHONPATH": "${workspaceRoot}" } // deprecated -- use workspaceFolder
     }
   ]
 }
