@@ -22,3 +22,7 @@ Homework 4:
 Homework 5:
 
 The simplest idea is to first block both phone books using a quick key, like last name plus first initial, and only compare people inside the same block. That way we don’t have to do an all-to-all comparison, because entries from different blocks are ignored from the start. We can narrow it down even more by requiring something exact like the same phone number or ZIP code before we even look closely at the names or address details.
+
+Homework 9:
+
+In the website, I trained a model that predicts whether an image contains a fork or a key using a small number of labeled images for each class, with different angles and positions. The model worked well on clear images that looked similar to the training data, but struggled when the object was harder to recognize, such as when the key was at a weird angle or not clearly visible, and in those cases it predicted the wrong class. I did upload around 20 images of each object to the training data. I think that even with a small dataset, it can still perform well because it uses a model that already captures visual features like shapes and edges. It only needs a small amount of data to learn the differences between classes.
