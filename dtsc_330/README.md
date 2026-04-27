@@ -26,3 +26,21 @@ The simplest idea is to first block both phone books using a quick key, like las
 Homework 9:
 
 In the website, I trained a model that predicts whether an image contains a fork or a key using a small number of labeled images for each class, with different angles and positions. The model worked well on clear images that looked similar to the training data, but struggled when the object was harder to recognize, such as when the key was at a weird angle or not clearly visible, and in those cases it predicted the wrong class. I did upload around 20 images of each object to the training data. I think that even with a small dataset, it can still perform well because it uses a model that already captures visual features like shapes and edges. It only needs a small amount of data to learn the differences between classes.
+
+Homework 13:
+
+For this homework, I built a spelling correction model using TensorFlow. The goal was to take a misspelled word as input and predict the correct version of that word. I used Generative AI for coding.
+
+To create the dataset, I started with a list of correct words and then simulated typos by randomly deleting, inserting, swapping, or replacing characters. This allowed me to generate a larger dataset without manually labeling everything.
+
+This problem is a sequence-to-sequence (seq2seq) problem, because the input is a sequence of characters and the output is another sequence of characters. For example:
+
+- tonue → tongue  
+- calendfar → calendar  
+- sucessful → successful  
+
+Instead of predicting a single label like in classification, the model has to predict an entire sequence of characters. This is similar to translation, but here it's translating it from a “misspelled word → correct word”.
+
+The model works by looking at each word letter by letter. First, it turns each letter into a number so the computer can understand it. Then it tries to learn patterns in how misspelled words should be fixed. For example, it might learn that "helo" is missing an "l" or that letters are sometimes swapped. After training, it uses these patterns to predict the corrected word one letter at a time.
+
+I think a more advanced approach would be to use a transformer-based model, which uses attention to better understand relationships between characters. This would definitely improve performance, especially on harder spelling errors, or if there are two or more letters misspelled. For this project, I chose a simpler model so I could focus on understanding how the sequence-to-sequence mapping works before moving to more complex architectures.
